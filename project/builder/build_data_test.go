@@ -1,11 +1,11 @@
-package main
+package builder
 
 import (
 	"testing"
 )
 
 func TestBuildFirstPlanProperly(t *testing.T) {
-	plans := CreatePlans()
+	plans := CreatePlans("../../resources/plans.csv")
 
 	expectedPlan := Plan{
 		Planid:     "74449NR9870320",
@@ -21,7 +21,7 @@ func TestBuildFirstPlanProperly(t *testing.T) {
 }
 
 func TestBuildFirstZipProperly(t *testing.T) {
-	zips := CreateZip()
+	zips := CreateZips("../../resources/zips.csv")
 
 	expectedZip := Zip{
 		Zipcode:     "36749",
@@ -37,7 +37,7 @@ func TestBuildFirstZipProperly(t *testing.T) {
 }
 
 func TestBuildFirstSLCSPProperly(t *testing.T) {
-	slcsps := CreateSLCSPs()
+	slcsps := CreateSLCSPs("../../resources/slcsp.csv")
 
 	expectedSLCSP:= SLCSP{
 		Zipcode: "64148",

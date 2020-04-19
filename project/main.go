@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"tmorris/project/builder"
+	"tmorris/project/calculator"
+	"tmorris/project/uploador"
+)
 
 func main() {
-	fmt.Println("Hello, world.")
+	slcsps := builder.CreateSLCSPs("../resources/slcsp.csv")
+	plans := builder.CreatePlans("../resources/plans.csv")
+	zips := builder.CreateZips("../resources/zips.csv")
+
+	updatedSlcsps := calculator.UpdateSlcspsWithRates(slcsps, plans, zips)
+
+	uploador.CreateNewSLCSPFileWithRates(updatedSlcsps, "../resources/new_slcsp.csv")
 }

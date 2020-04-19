@@ -1,4 +1,4 @@
-package main
+package builder
 
 import (
 	"bufio"
@@ -31,8 +31,8 @@ type Zip struct {
 	Ratearea    int64
 }
 
-func CreatePlans() []Plan {
-	reader := ReadCSV("plans.csv")
+func CreatePlans(fileName string) []Plan {
+	reader := ReadCSV(fileName)
 	var plans []Plan
 
 	for {
@@ -58,8 +58,8 @@ func CreatePlans() []Plan {
 	return plans
 }
 
-func CreateSLCSPs() []SLCSP {
-	reader := ReadCSV("slcsp.csv")
+func CreateSLCSPs(fileName string) []SLCSP {
+	reader := ReadCSV(fileName)
 	var slcsps []SLCSP
 
 	for {
@@ -81,8 +81,8 @@ func CreateSLCSPs() []SLCSP {
 	return slcsps
 }
 
-func CreateZip() []Zip {
-	reader := ReadCSV("zips.csv")
+func CreateZips(fileName string) []Zip {
+	reader := ReadCSV(fileName)
 	var zips []Zip
 
 	for {
